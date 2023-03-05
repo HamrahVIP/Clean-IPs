@@ -11,14 +11,18 @@ for (const item of ips) {
   cleanIPs[item.ip].push(...item.operators);
 }
 
-const result = JSON.stringify(
-  Object.keys(cleanIPs).map((key) => ({
-    ip: key,
-    operators: [...new Set(cleanIPs[key])],
-  })),
-  null,
-  2
-);
+const result = Object.keys(cleanIPs).map((key) => ({
+  ip: key,
+  operators: [...new Set(cleanIPs[key])],
+}));
 
-fs.writeFileSync("output.json", result);
-console.log("JSON file has been saved.");
+fs.writeFileSync(
+  "output.json",
+  JSON.stringify(
+    result.sort((a, b) => {
+      return b.operators.length - a.operators.length;
+    }),
+    null,
+    2
+  )
+);
