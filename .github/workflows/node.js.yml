@@ -16,6 +16,6 @@ jobs:
           node scripts/script.js
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add output.json
-          (git commit -m 'normalize output') || true
+          git add ips.json
+          (git commit -m 'normalize IPs') || true
           git push https://bot:$GITHUB_TOKEN@github.com/zoheirkabuli/Clean-IPs
