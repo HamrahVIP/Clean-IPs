@@ -3,9 +3,7 @@
 
 name: Update output.json
 permissions: write-all
-on:
-  push:
-    branches: ["dev"]
+on: push
 
 jobs:
   build:
