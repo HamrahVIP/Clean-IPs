@@ -17,7 +17,7 @@ const result = Object.keys(cleanIPs).map((key) => ({
 }));
 
 fs.writeFileSync(
-  "output.json",
+  "ips.json",
   JSON.stringify(
     result.sort((a, b) => {
       return b.operators.length - a.operators.length;
